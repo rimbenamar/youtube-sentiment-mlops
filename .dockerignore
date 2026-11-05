@@ -1,0 +1,18 @@
+# On n'envoie au build Docker que le strict nécessaire
+venv/
+.venv/
+.git/
+.github/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/
+logs/
+reports/
+tests/
+docs/
+chrome-extension/
+notebooks/
+*.md
+*.zip
+.env

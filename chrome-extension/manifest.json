@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Écho — le ressenti des commentaires YouTube",
+  "short_name": "Écho",
+  "version": "3.0.0",
+  "description": "Écoute les commentaires d'une vidéo YouTube et indique s'ils sont positifs, neutres ou négatifs, grâce à un modèle de Machine Learning.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Écho : que pense le public ?",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://*.app.github.dev/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

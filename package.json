@@ -1,0 +1,10 @@
+{
+  "name": "echo-youtube-sentiment",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Tests de l'extension Chrome Écho (aucune dépendance : Node.js 18+ suffit)",
+  "scripts": {
+    "test": "node --test tests/extension.test.js",
+    "check": "node --check chrome-extension/background.js && node --check chrome-extension/popup.js && node --check chrome-extension/content.js && node --check chrome-extension/lib.js"
+  }
+}

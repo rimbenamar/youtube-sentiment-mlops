@@ -1,0 +1,66 @@
+{
+  "model_name": "LogisticRegression",
+  "model_version": "cdc1229a79f6",
+  "artifacts_sha256": "cdc1229a79f6e1fcea2b56c86a029d03e3834ace322bb93421340e84bd71eec2",
+  "trained_at": "2026-11-05T21:39:36+00:00",
+  "labels": {
+    "-1": "negatif",
+    "0": "neutre",
+    "1": "positif"
+  },
+  "best_params_logreg": {
+    "clf__C": 10.0,
+    "clf__class_weight": "balanced",
+    "tfidf__max_features": 20000,
+    "tfidf__ngram_range": [
+      1,
+      1
+    ]
+  },
+  "vocabulary_size": 20000,
+  "n_train": 29190,
+  "n_test": 7298,
+  "metrics": {
+    "accuracy": 0.8915,
+    "f1_macro": 0.8817,
+    "f1_weighted": 0.8907,
+    "precision_macro": 0.8824,
+    "recall_macro": 0.8824,
+    "f1_per_class": {
+      "negatif": 0.8176,
+      "neutre": 0.9287,
+      "positif": 0.8988
+    },
+    "inference_ms_50": 0.92,
+    "cv_f1_macro": 0.866
+  },
+  "latency_50_comments": {
+    "batch_size": 50,
+    "runs": 200,
+    "mean_ms": 1.075,
+    "p50_ms": 0.967,
+    "p95_ms": 1.459,
+    "max_ms": 2.279
+  },
+  "baseline": {
+    "accuracy": 0.4308,
+    "f1_macro": 0.2007,
+    "f1_weighted": 0.2594,
+    "precision_macro": 0.1436,
+    "recall_macro": 0.3333,
+    "f1_per_class": {
+      "negatif": 0.0,
+      "neutre": 0.0,
+      "positif": 0.6022
+    },
+    "inference_ms_50": 0.74,
+    "fit_time_s": 0.89
+  },
+  "criteria": {
+    "accuracy>=0.80": true,
+    "f1_par_classe>0.75": true,
+    "inference_50<100ms": true
+  },
+  "sklearn_version": "1.7.2",
+  "python_version": "3.14.5"
+}

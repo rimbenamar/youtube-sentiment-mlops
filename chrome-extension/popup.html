@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Écho — le ressenti des commentaires</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <!-- Icônes réutilisables (visages + pictos) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="face-pos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8 14.2c1 1.5 2.4 2.3 4 2.3s3-.8 4-2.3"/><path d="M9 9.6v.6M15 9.6v.6"/></symbol>
+    <symbol id="face-neu" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8.5 15h7"/><path d="M9 9.6v.6M15 9.6v.6"/></symbol>
+    <symbol id="face-neg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8 16.3c1-1.5 2.4-2.3 4-2.3s3 .8 4 2.3"/><path d="M9 9.6v.6M15 9.6v.6"/></symbol>
+    <symbol id="face-skip" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3 3"/><path d="M9 12h6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="M7 4v16M3.5 16.5 7 20l3.5-3.5M17 20V4M13.5 7.5 17 4l3.5 3.5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3.5M7.5 8 12 3.5 16.5 8"/><path d="M5 12.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-6.5"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.4-5.7L20 8.6"/><path d="M20 3.5v5.1h-5.1"/></symbol>
+  </svg>
+
+  <header class="hdr">
+    <div class="logo">
+      <img src="icons/icon48.png" alt="" width="30" height="30" />
+      <div>
+        <strong>Écho</strong>
+        <small>le ressenti des commentaires</small>
+      </div>
+    </div>
+    <div class="hdr-actions">
+      <span class="api" id="apiStatus" role="status" title="État de l'API"><i></i><span id="apiStatusText">…</span></span>
+      <button class="ghost-btn" id="themeBtn" title="Mode sombre / clair" aria-label="Basculer le thème">
+        <svg id="iconMoon" viewBox="0 0 24 24"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg>
+        <svg id="iconSun" viewBox="0 0 24 24" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+      </button>
+      <button class="ghost-btn" id="settingsBtn" title="Réglages" aria-label="Réglages" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="sheet" id="settings" hidden>
+    <h3>Réglages</h3>
+    <label class="field">
+      <span>Adresse de l'API</span>
+      <input type="text" id="apiUrl" placeholder="https://<nom>-7860.app.github.dev" spellcheck="false" autocomplete="off" />
+    </label>
+    <label class="field">
+      <span>Nombre maximum de commentaires : <b id="maxLabel">100</b></span>
+      <input type="range" id="maxComments" min="20" max="1000" step="20" />
+    </label>
+    <label class="switch"><input type="checkbox" id="autoScroll" /><span></span> Charger la suite en faisant défiler la page</label>
+    <label class="switch"><input type="checkbox" id="includeReplies" /><span></span> Inclure les réponses dépliées</label>
+    <div class="sheet-actions">
+      <button class="link-btn" id="testApiBtn">Tester la connexion</button>
+      <button class="pill" id="saveSettingsBtn">Enregistrer</button>
+    </div>
+  </section>
+
+  <section class="banner" id="banner">
+    <div class="banner-img" id="thumb"></div>
+    <div class="banner-text">
+      <span class="eyebrow" id="videoMeta">Aucune vidéo</span>
+      <p id="videoTitle">Ouvrez une vidéo YouTube</p>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs" hidden role="tablist">
+    <button role="tab" class="on" data-tab="overview" aria-selected="true">Aperçu</button>
+    <button role="tab" data-tab="comments" aria-selected="false">Commentaires <span id="tabCount"></span></button>
+  </nav>
+
+  <main>
+    <!-- Accueil -->
+    <section class="idle" id="idle">
+      <h1>Que pense le public&nbsp;?</h1>
+      <p>Écho lit les commentaires de la vidéo et indique pour chacun s'il est <span class="t-pos">positif</span>, <span class="t-neu">neutre</span> ou <span class="t-neg">négatif</span>.</p>
+      <button class="pill big" id="analyzeBtn">Écouter les commentaires</button>
+    </section>
+
+    <!-- Progression -->
+    <section class="loading" id="progress" hidden>
+      <svg class="ring" viewBox="0 0 80 80" aria-hidden="true">
+        <circle cx="40" cy="40" r="32" class="ring-bg"/>
+        <circle cx="40" cy="40" r="32" class="ring-fg" id="ringFg"/>
+      </svg>
+      <div class="ring-label" id="progressCount"></div>
+      <p class="loading-title" id="progressText">Chargement des commentaires…</p>
+      <p class="hint">Vous pouvez fermer cette fenêtre, l'analyse continue.</p>
+    </section>
+
+    <!-- Erreur -->
+    <section class="oops" id="errorBox" role="alert" hidden>
+      <svg viewBox="0 0 24 24" class="oops-ic"><use href="#face-neg"/></svg>
+      <p id="errorText"></p>
+      <button class="pill" id="retryBtn">Réessayer</button>
+    </section>
+
+    <!-- Onglet Aperçu -->
+    <section class="view" id="overview" hidden>
+      <div class="gauge-card">
+        <svg class="gauge" id="gauge" viewBox="0 0 220 128" role="img" aria-label="Jauge du score global"></svg>
+        <p class="verdict" id="verdict">—</p>
+        <p class="sub" id="analyzedLine"></p>
+      </div>
+
+      <ul class="rows" id="rows"></ul>
+
+      <div class="standouts" id="standouts"></div>
+
+      <div class="foot-line">
+        <p class="meta" id="meta"></p>
+        <button class="link-btn" id="reanalyzeBtn"><svg viewBox="0 0 24 24" class="ic"><use href="#i-redo"/></svg>Relancer</button>
+      </div>
+    </section>
+
+    <!-- Onglet Commentaires -->
+    <section class="view" id="comments" hidden>
+      <div class="toolbar">
+        <div class="chips" id="filters">
+          <button class="chip on" data-filter="all">Tout <b id="cAll">0</b></button>
+          <button class="chip pos" data-filter="1" title="Positifs"><svg><use href="#face-pos"/></svg><b id="cPos">0</b></button>
+          <button class="chip neu" data-filter="0" title="Neutres"><svg><use href="#face-neu"/></svg><b id="cNeu">0</b></button>
+          <button class="chip neg" data-filter="-1" title="Négatifs"><svg><use href="#face-neg"/></svg><b id="cNeg">0</b></button>
+        </div>
+        <div class="tool-btns">
+          <button class="ghost-btn" id="searchBtn" title="Rechercher" aria-label="Rechercher"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></button>
+          <button class="ghost-btn" id="sortBtn" title="Tri : ordre de la page" aria-label="Changer le tri"><svg viewBox="0 0 24 24"><use href="#i-sort"/></svg></button>
+          <div class="menu-wrap">
+            <button class="ghost-btn" id="exportBtn" title="Exporter" aria-label="Exporter" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24"><use href="#i-share"/></svg></button>
+            <div class="menu" id="exportMenu" hidden role="menu">
+              <button role="menuitem" id="copyBtn">Copier dans le presse-papiers</button>
+              <button role="menuitem" id="csvBtn">Télécharger en CSV</button>
+              <button role="menuitem" id="jsonBtn">Télécharger en JSON</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="search" id="search" class="search" placeholder="Mot, expression ou auteur…" hidden />
+      <p class="list-info" id="listCount"></p>
+      <ul class="cards" id="list"></ul>
+      <p class="empty" id="emptyList" hidden>Rien à afficher pour ce filtre.</p>
+    </section>
+  </main>
+
+  <div class="toast" id="feedback" role="status" aria-live="polite" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="lib.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

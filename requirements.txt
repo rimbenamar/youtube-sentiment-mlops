@@ -1,0 +1,11 @@
+# Dépendances de PRODUCTION (image Docker de l'API) - versions figées pour la reproductibilité.
+# scikit-learn et joblib DOIVENT être identiques à ceux utilisés pour l'entraînement
+# (un modèle .joblib n'est pas garanti compatible entre versions de scikit-learn).
+fastapi==0.115.12
+uvicorn==0.34.0
+pydantic>=2.7,<3
+scikit-learn==1.7.2
+joblib>=1.5.2
+# Pas de borne haute : pip choisit la version qui a une roue précompilée pour votre Python
+# (2.2.x sous Python 3.10 dans Docker, 2.3+ sous Python 3.14 sous Windows).
+numpy>=1.26

@@ -1,0 +1,210 @@
+{
+  "n_comments": 36488,
+  "class_counts": {
+    "negatif": 8233,
+    "neutre": 12534,
+    "positif": 15721
+  },
+  "class_pct": {
+    "negatif": 22.56,
+    "neutre": 34.35,
+    "positif": 43.09
+  },
+  "imbalance_ratio": 1.91,
+  "words_mean": 29.8,
+  "words_median": 13.0,
+  "words_max": 1307,
+  "words_mean_by_class": {
+    "negatif": 34.9,
+    "neutre": 9.9,
+    "positif": 42.9
+  },
+  "top_words": {
+    "negatif": [
+      [
+        "bjp",
+        1530
+      ],
+      [
+        "india",
+        1347
+      ],
+      [
+        "modi",
+        1321
+      ],
+      [
+        "other",
+        947
+      ],
+      [
+        "how",
+        908
+      ],
+      [
+        "don",
+        894
+      ],
+      [
+        "out",
+        864
+      ],
+      [
+        "when",
+        845
+      ],
+      [
+        "some",
+        824
+      ],
+      [
+        "even",
+        819
+      ],
+      [
+        "now",
+        770
+      ],
+      [
+        "why",
+        765
+      ],
+      [
+        "only",
+        748
+      ],
+      [
+        "these",
+        747
+      ],
+      [
+        "any",
+        734
+      ]
+    ],
+    "neutre": [
+      [
+        "same",
+        1001
+      ],
+      [
+        "modi",
+        835
+      ],
+      [
+        "bjp",
+        675
+      ],
+      [
+        "india",
+        591
+      ],
+      [
+        "hai",
+        536
+      ],
+      [
+        "why",
+        419
+      ],
+      [
+        "lot",
+        417
+      ],
+      [
+        "how",
+        387
+      ],
+      [
+        "don",
+        384
+      ],
+      [
+        "now",
+        373
+      ],
+      [
+        "should",
+        356
+      ],
+      [
+        "when",
+        349
+      ],
+      [
+        "time",
+        342
+      ],
+      [
+        "congress",
+        314
+      ],
+      [
+        "any",
+        302
+      ]
+    ],
+    "positif": [
+      [
+        "india",
+        3345
+      ],
+      [
+        "good",
+        2996
+      ],
+      [
+        "bjp",
+        2879
+      ],
+      [
+        "modi",
+        2838
+      ],
+      [
+        "how",
+        2049
+      ],
+      [
+        "don",
+        1929
+      ],
+      [
+        "now",
+        1902
+      ],
+      [
+        "some",
+        1863
+      ],
+      [
+        "even",
+        1829
+      ],
+      [
+        "out",
+        1783
+      ],
+      [
+        "when",
+        1738
+      ],
+      [
+        "any",
+        1617
+      ],
+      [
+        "think",
+        1599
+      ],
+      [
+        "which",
+        1584
+      ],
+      [
+        "because",
+        1556
+      ]
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+params,mean_test_score,std_test_score,mean_fit_time
+"{'clf__C': 10.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 1)}",0.865988700085877,0.0025812457143251475,1.4735197226206462
+"{'clf__C': 10.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 1)}",0.865988700085877,0.0025812457143251475,1.4743266105651855
+"{'clf__C': 10.0, 'clf__class_weight': None, 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 1)}",0.864252384276447,0.0020892344367575946,1.6797714233398438
+"{'clf__C': 10.0, 'clf__class_weight': None, 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 1)}",0.864252384276447,0.0020892344367575946,1.657291571299235
+"{'clf__C': 5.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 1)}",0.862127186131887,0.0010151134139132437,1.5249160130818684
+"{'clf__C': 5.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 1)}",0.862127186131887,0.0010151134139132437,1.4935250282287598
+"{'clf__C': 5.0, 'clf__class_weight': None, 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 1)}",0.8603512851231067,0.003271829145275466,1.438995599746704
+"{'clf__C': 5.0, 'clf__class_weight': None, 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 1)}",0.8603512851231067,0.003271829145275466,1.4339712460835774
+"{'clf__C': 10.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}",0.8513227776593294,0.0030959564614490838,2.6408185958862305
+"{'clf__C': 5.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}",0.848330953432412,0.0038023064683970595,2.680781841278076
+"{'clf__C': 10.0, 'clf__class_weight': None, 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}",0.8481475809767213,0.0018780832687021723,3.110135873158773
+"{'clf__C': 10.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 2)}",0.8451904356915282,0.0004498403479406783,3.9881505966186523
+"{'clf__C': 5.0, 'clf__class_weight': None, 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}",0.8438978616769993,0.0017528675321968458,2.558494488398234
+"{'clf__C': 10.0, 'clf__class_weight': None, 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 2)}",0.8420611124996745,0.0007145689562921747,3.831824779510498
+"{'clf__C': 5.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 2)}",0.8418923901514418,0.0006970437414944974,3.843695878982544
+"{'clf__C': 5.0, 'clf__class_weight': None, 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 2)}",0.8359901573098437,0.0008736198622905243,3.9168951511383057
+"{'clf__C': 1.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 1)}",0.8337874287257563,0.0035108726641697135,1.210013707478841
+"{'clf__C': 1.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 1)}",0.8337874287257563,0.0035108726641697135,1.2481006781260173
+"{'clf__C': 1.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}",0.8228278003254931,0.002798180114956799,2.376044511795044
+"{'clf__C': 1.0, 'clf__class_weight': None, 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 1)}",0.8195035402728799,0.003981286720856866,1.2545561790466309
+"{'clf__C': 1.0, 'clf__class_weight': None, 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 1)}",0.8195035402728799,0.003981286720856866,1.1221271355946858
+"{'clf__C': 1.0, 'clf__class_weight': 'balanced', 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 2)}",0.8132482680487584,0.0011869046703718987,2.82008163134257
+"{'clf__C': 1.0, 'clf__class_weight': None, 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}",0.8077612064541381,0.004272309975389494,2.281999111175537
+"{'clf__C': 1.0, 'clf__class_weight': None, 'tfidf__max_features': 50000, 'tfidf__ngram_range': (1, 2)}",0.793820332437638,0.003771798345143679,2.8359572887420654

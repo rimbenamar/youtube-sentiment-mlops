@@ -1,0 +1,13 @@
+{
+  "rows_raw": 37249,
+  "missing_or_invalid": 100,
+  "empty_after_cleaning": 214,
+  "conflicting_texts": 1,
+  "conflicting_rows_removed": 3,
+  "duplicates_removed": 444,
+  "rows_clean": 36488,
+  "train_rows": 29190,
+  "test_rows": 7298,
+  "test_size": 0.2,
+  "random_state": 42
+}
