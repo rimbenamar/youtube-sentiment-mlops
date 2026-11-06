@@ -3,8 +3,7 @@
 **Que pense le public de cette vidéo ?** Écho lit les commentaires d'une vidéo YouTube et indique pour chacun s'il est
 *positif*, *neutre* ou *négatif*, puis résume le tout dans une jauge.
 
-C'est le TP3 « Projet ML complet » (ENSAM Rabat, filière INDIA, 2026/27, Prof. Maria Zemzami) : un modèle scikit-learn
-servi par une API FastAPI, conteneurisé avec Docker, exécuté sur GitHub Codespaces et consommé par une extension Chrome.
+C'est un modèle scikit-learn servi par une API FastAPI, conteneurisé avec Docker, exécuté sur GitHub Codespaces et consommé par une extension Chrome.
 
 | Aperçu | Commentaires | Mode sombre |
 |:---:|:---:|:---:|
