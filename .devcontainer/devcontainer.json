@@ -1,9 +1,6 @@
 {
   "name": "Écho - API de sentiment YouTube",
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "forwardPorts": [7860],
   "portsAttributes": {
     "7860": { "label": "API sentiment", "onAutoForward": "silent" }
